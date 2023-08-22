@@ -14,7 +14,7 @@
 
 ## Description
 
-Desciption goes here.
+Desciption goes here
 
 ## Project Details:
 
@@ -50,3 +50,4 @@ Desciption goes here.
 Contributions are welcome.
 
 ## Questions
+
