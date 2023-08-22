@@ -48,10 +48,5 @@ Desciption goes here
 ## Contributions
 
 Contributions are welcome.
-
-
-## Questions
-
 Paul, Rich, Amanda, Alice, and Yandra
 ## Questions
-
