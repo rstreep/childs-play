@@ -14,7 +14,7 @@
 
 ## Description
 
-Desciption goes here.
+Desciption goes here
 
 ## Project Details:
 
@@ -48,5 +48,10 @@ Desciption goes here.
 ## Contributions
 
 Contributions are welcome.
+
+
+## Questions
+
 Paul, Rich, Amanda, Alice, and Yandra
 ## Questions
+
