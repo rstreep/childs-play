@@ -26,9 +26,9 @@ const generateOptions = () => {
 
 };
 
-const SpellingGame = () =>{
+// const SpellingGame = () =>{
 
-};
+// };
 
 export default function SpellingGame() {
 
