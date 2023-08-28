@@ -1,19 +1,41 @@
-export default function ColorGame() {
-    return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-        <header className="text-4xl font-bold mt-8">Color Guessing Game</header>
-        <main className="mt-8 text-center">
-        <p className="text-lg">Guess the color that matches the following:</p>
-        <p className="text-2xl font-bold mt-2"></p>
-        <img src="color-image.jpg" alt="Color to guess" className="mt-4" />
-        <div className="mt-8 space-x-4">
-        <button className={`bg- px-4 py-2 rounded text-white`}>
-        {color}
-        </button>
-        
+import React from 'react';
+
+const ColorGame = ({ questionData }) => {
+  console.log({ questionData });
+  
+  return (
+    <div className="max-w-md p-6 bg-white rounded-lg shadow-lg">
+      {/* Card Header */}
+      <div className="text-center font-bold text-xl mb-4">
+        Color Game
+      </div>
+
+      {/* Question Text */}
+      <div className="mb-4">
+        {questionData?.question}
+      </div>
+
+      {/* Question Image */}
+      <img
+        style={{ width: "15%" }}
+        src={questionData?.img}
+        alt="Question"
+        className="w-full h-auto mb-4"
+      />
+
+      {/* Choices */}
+      <div style={{ display: "flex", flexDirection: "row", justifyContent:"space-evenly" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label htmlFor="red" style={{ backgroundColor: "red", width: "200%", height: "200%", }}>red</label>
+          <label htmlFor="yellow" style={{ backgroundColor: "yellow", width: "200%", height: "200%",  }}>yellow</label>
         </div>
-        <p className="text-xl font-bold mt-6">Your score: </p>
-        </main>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <label htmlFor="blue" style={{ backgroundColor: "blue", width: "200%", height: "200%",  }}>blue</label>
+          <label htmlFor="purple" style={{ backgroundColor: "purple", width: "200%", height: "200%",  }}>purple</label>
         </div>
-        );
+      </div>
+    </div>
+  );
 };
+
+export default ColorGame;
