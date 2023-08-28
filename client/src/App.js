@@ -20,10 +20,10 @@ function App() {
         <Routes>
 
           <Route path="/" element={<AnimalGame />} />
-          <Route path="/about" element={<ColorGame />} />
-          <Route path="/projects" element={<Homepage />} />
-          <Route path="/contact" element={<Login />} />
-          <Route path="/contact" element={<SpellingGame />} />
+          <Route path="/colorgame" element={<ColorGame />} />
+          <Route path="/homepage" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/spellinggame" element={<SpellingGame />} />
 
 
         </Routes> 
