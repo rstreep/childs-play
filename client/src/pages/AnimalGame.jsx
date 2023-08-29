@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-// import dogImage from '../assets/images/dog.jpg';
-// import catImage from '../assets/images/cat.png';
-// import elephantImage from '../assets/images/elephant.png';
-// import lionImage from '../assets/images/lion.png';
-// import tigerImage from '../assets/images/tiger.png';
-// import turtleImage from '../assets/images/turtle.png';
-// import birdImage from '../assets/images/bird.png';
-// import giraffeImage from '../assets/images/giraffe.jpg';
-// import kangarooImage from '../assets/images/kangaroo.png';
-// import monkeyImage from '../assets/images/monkey.jpg';
-// import fishImage from '../assets/images/fish.png';
-// import mouseImage from '../assets/images/mouse.png';
+import dogImage from '../assets/images/dog.jpg';
+import catImage from '../assets/images/cat.png';
+import elephantImage from '../assets/images/elephant.png';
+import lionImage from '../assets/images/lion.png';
+import tigerImage from '../assets/images/tiger.png';
+import turtleImage from '../assets/images/turtle.png';
+import birdImage from '../assets/images/bird.png';
+import giraffeImage from '../assets/images/giraffe.jpg';
+import kangarooImage from '../assets/images/kangaroo.png';
+import monkeyImage from '../assets/images/monkey.jpg';
+import fishImage from '../assets/images/fish.png';
+import mouseImage from '../assets/images/mouse.png';
 
 export default function Animals() {
   const allAnimals = [
