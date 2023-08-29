@@ -1,4 +1,4 @@
-/* import */
+/* imports */
 
 import React, { useState } from 'react';
 
@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 /* Navbar */
 
 const Navbar = () => {
+
+    const [nav, setNav] = useState(false)
+    const handleClick = () => setNav(!nav)
 
 
     return (
@@ -40,6 +43,14 @@ const Navbar = () => {
                     </Link></li>
 
                 </ul>
+
+            </div>
+
+
+            {/* Hamburger menu */}
+            <div onClick={handleClick} className='md:hidden z-10' >
+
+                {!nav ? <FaBars /> : <FaTimes />}
 
             </div>
 
