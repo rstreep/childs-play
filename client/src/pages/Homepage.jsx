@@ -13,12 +13,8 @@ const Homepage = () => {
 
             <div className='max-w-[750px]'>
 
-
-                <Link to="/">
-                    <button className='text-white group border-2 px-1 py-3 my-3 flex justify-center hover:bg-[#8BB7CC] hover:border-black'>
-
-                    </button>  </Link>
-
+            <h2 className='text-black font-bold'>Know on the Go!</h2>
+               
 
             </div>
 
