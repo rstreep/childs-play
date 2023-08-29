@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 const Navbar = () => {
 
     const [nav, setNav] = useState(false)
-    const handleClick = () => setNav(!nav)
+   
 
 
 
@@ -47,12 +47,7 @@ const Navbar = () => {
 
             </div>
 
-            {/* Hamburger menu */}
-            <div onClick={handleClick} className='md:hidden z-10' >
-
-                {!nav ? <FaBars /> : <FaTimes />}
-
-            </div>
+        
 
             {/* Mobile menu */}
 
