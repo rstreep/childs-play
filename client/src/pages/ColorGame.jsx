@@ -1,39 +1,9 @@
-import React from 'react';
+import Colorgame from '../components/color_components';
 
-const ColorGame = ({ questionData }) => {
-  console.log({ questionData });
-  
+const ColorGame = () => {
   return (
-    <div className="max-w-md p-6 bg-white rounded-lg shadow-lg">
-      {/* Card Header */}
-      <div className="text-center font-bold text-xl mb-4">
-        Color Game
-      </div>
-
-      {/* Question Text */}
-      <div className="mb-4">
-        {questionData?.question}
-      </div>
-
-      {/* Question Image */}
-      <img
-        style={{ width: "15%" }}
-        src={questionData?.img}
-        alt="Question"
-        className="w-full h-auto mb-4"
-      />
-
-      {/* Choices */}
-      <div style={{ display: "flex", flexDirection: "row", justifyContent:"space-evenly" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="red" style={{ backgroundColor: "red", width: "200%", height: "200%", }}>red</label>
-          <label htmlFor="yellow" style={{ backgroundColor: "yellow", width: "200%", height: "200%",  }}>yellow</label>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <label htmlFor="blue" style={{ backgroundColor: "blue", width: "200%", height: "200%",  }}>blue</label>
-          <label htmlFor="purple" style={{ backgroundColor: "purple", width: "200%", height: "200%",  }}>purple</label>
-        </div>
-      </div>
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <Colorgame/>
     </div>
   );
 };
