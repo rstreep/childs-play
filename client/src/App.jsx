@@ -1,10 +1,9 @@
 
-import { Outlet } from 'react-router-dom';
-
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Outlet } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -42,10 +41,10 @@ const authLink = setContext((_, { headers }) => {
 
 });
 
-function App() {
-  return (
+// function App() {
+//   return (
 
-    //check this (alice)
+ 
 //     <ApolloProvider client={client}>
 //       <div className="flex-column justify-center align-center min-100-vh bg-primary">
 //         <Outlet />
@@ -80,7 +79,7 @@ function App() {
       </p>
     </>
     </ApolloProvider>
-  )
+  
 }
 
 export default App;
