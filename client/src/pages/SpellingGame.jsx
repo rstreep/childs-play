@@ -20,7 +20,7 @@ export default function SpellingGame() {
     { word: "BOOK", answer: "B" /*, image: '', sound: ''*/ },
     { word: "STAR", answer: "S" /*, image: '', sound: '' */ },
     { word: "COW", answer: "W" /*, image: '', sound: '' */ },
-    { word: "BOAT", answer: "O" /*, image: '', sound: '' */ },
+    { word: "BOAT", answer: "O" /*, image: '', sound: '' */ }
   ];
 
   const generateOptions = (correctAnswer) => {
@@ -76,7 +76,7 @@ export default function SpellingGame() {
       </div>
       <div>
         <h2>What letter is missing from the word? </h2>
-        /*
+{/*
         <img
           src={`images/${currentWordInfo.image}`}
           alt={currentWordInfo.word}
@@ -85,7 +85,7 @@ export default function SpellingGame() {
           <source src={`sounds/${currentWordInfo.sound}`} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>{" "}
-        */
+  */}
         {showAnswer ? (
           <p className="answer">{currentWordInfo.word}</p>
         ) : (
