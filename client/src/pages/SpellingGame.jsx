@@ -55,20 +55,38 @@ const SpellingGame = () => {
       } else {
         // Game over, handle the end of the game
       }
-    }, 2000); // Move to the next word after 2 seconds
+    }, 1000); // Move to the next word after 2 seconds
   };
 
   return (
-    <div>
-      <h1>Spelling Game</h1>
+    <div
+       style={{
+        maxWidth: "500px",
+        padding: "1.5rem",
+        backgroundColor: "black",
+        borderRadius: "0.5rem",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        textAlign: "center",
+      }} >
+      <h1      style={{
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                marginBottom: "1rem",
+              }}>Spelling Game</h1>
       <div>
         <p>Score: {score}</p>
       </div>
-      <div>
+      <div style={{
+           marginBottom: "1rem",
+        }}>
         <h2>What letter is missing from the word? </h2>
         <img
-          src={`./assets/images/${currentWordInfo.image}`}
-          alt={currentWordInfo.word}
+            style={{
+            width: "35%",
+            marginBottom: "1rem",
+            }}
+          src={`./src/assets/images/spellinggame/${currentWordInfo.image}`}
+          alt={currentWordInfo.finalword}
         />
 
         {showAnswer ? (
