@@ -9,7 +9,7 @@ const Homepage = () => {
     return (
         <div name='home' className=' h-screen bg-[#2b5390]'>
 
-            {/* Main content */}
+            {/* Main content for homepage*/}
 
             <div className='max-w-[750px]'>
 

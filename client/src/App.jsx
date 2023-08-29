@@ -4,6 +4,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Outlet } from 'react-router-dom';
+<<<<<<< HEAD
+
+
+
+// // import {
+// //   ApolloClient,
+// //   InMemoryCache,
+// //   ApolloProvider,
+// //   createHttpLink,
+// // } from '@apollo/client';
+// // import { setContext } from '@apollo/client/link/context'
+
+
+=======
 // import {
 //   ApolloClient,
 //   InMemoryCache,
@@ -21,6 +35,7 @@ function App() {
     </>
   )
 }
+>>>>>>> 3d06cc5a657329f9892869601f8455df59ca1c48
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -55,7 +70,11 @@ function App() {
  
 // //     <ApolloProvider client={client}>
 // //       <div className="flex-column justify-center align-center min-100-vh bg-primary">
+<<<<<<< HEAD
+// //        <Outlet />
+=======
 // //         <Outlet />
+>>>>>>> 3d06cc5a657329f9892869601f8455df59ca1c48
 // //       </div>
 // //     </ApolloProvider>
 // //   );
