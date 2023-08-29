@@ -3,22 +3,18 @@
 import React, { useState } from 'react';
 
 // import { Link } from 'react-scroll';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-/* Navbar with state */
+/* Navbar */
 
 const Navbar = () => {
-
-    const [nav, setNav] = useState(false)
-   
-
 
 
     return (
         <div id='nav' className=' w-full h-[100px] flex justify-between items-center px-4 bg-[#2b5390] text-gray-300'>
 
-            <div> <Link to = "/"> <img src={logo} alt="Logo" style={{ width: '75px' }} /> HOME </Link>
+            <div> <Link to="/"> <img src={logo} alt="Logo" style={{ width: '75px' }} /> HOME </Link>
 
             </div>
 
@@ -38,16 +34,16 @@ const Navbar = () => {
                     <li><Link to="/login"  >
                         Login
                     </Link></li>
-                    
+
                     <li><Link to="/spellinggame">
                         Let's Spell!
                     </Link></li>
-                 
+
                 </ul>
 
             </div>
 
-        
+
 
             {/* Mobile menu */}
 
@@ -58,7 +54,7 @@ const Navbar = () => {
                 <li className='py-5 text-3xl'>Spelling Game</li>
             </ul>
 
-           
+
 
         </div>
     )
