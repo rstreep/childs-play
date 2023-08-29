@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "./pages/Homepage.jsx";
 import Login from "./pages/Login.jsx";
 import AnimalGame from "./pages/AnimalGame.jsx";
-import ColorGame from "./pages/ColorGame.jsx";
+import ColorGame from "../src/components/color_components.jsx";
 import SpellingGame from "./pages/SpellingGame.jsx";
 
 const routes = [
@@ -28,7 +28,7 @@ const routes = [
         element: <AnimalGame />
       },
       {
-        path: "/colorgame",
+        path: "/colorGame",
         element: <ColorGame />
       },
       {
@@ -41,10 +41,6 @@ const routes = [
 
 const router = createBrowserRouter(routes);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
-  </React.StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <RouterProvider router={router} />
 );

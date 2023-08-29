@@ -1,7 +1,9 @@
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Outlet } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -36,9 +38,22 @@ const authLink = setContext((_, { headers }) => {
   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
       link: authLink.concat(httpLink),
       cache: new InMemoryCache(),
+
 });
 
-  return (
+// function App() {
+//   return (
+
+ 
+//     <ApolloProvider client={client}>
+//       <div className="flex-column justify-center align-center min-100-vh bg-primary">
+//         <Outlet />
+//       </div>
+//     </ApolloProvider>
+//   );
+// }
+
+
     <ApolloProvider client={client}>  
 
     <>
@@ -64,8 +79,9 @@ const authLink = setContext((_, { headers }) => {
       </p>
     </>
     </ApolloProvider>
-  )
+  
 }
 
 export default App;
+
 

@@ -2,9 +2,9 @@ import React, {useState, useEffect } from 'react';
 
 //list words, answers, images, and sounds in an array
 const wordsAndAnswers = [
-    { word:'CAT', answer: 'C'/*, image: 'cat.jpg', sound: 'Cat' */},
-    { word:'BED', answer: 'D'/*, image: '', sound: '' */},
-    { word:'BIRD', answer: 'R'/*, image: '', sound: ''*/ },
+    { word:'CAT', answer: 'C'/*, image: 'cong-h_cat.jpg', sound: 'Cat' */},
+    { word:'BED', answer: 'D'/*, image: 'bed.jpg', sound: '' */},
+    { word:'BIRD', answer: 'R'/*, image: 'bird.jpg', sound: ''*/ },
     { word:'SNOW', answer: 'N'/*, image: '', sound: ''*/ },
     { word:'DOG', answer: 'G'/*, image: '', sound: '' */},
     { word:'SUN', answer: 'U'/*, image: '', sound: ''*/ },
@@ -33,7 +33,7 @@ const generateOptions = (correctAnswer) => {
     return options.sort();
 };
 
-/* const SpellingGame = () =>{
+ const SpellingGame = () =>{
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [options, setOptions] = useState([]);
@@ -60,10 +60,10 @@ const generateOptions = (correctAnswer) => {
           setCurrentWordIndex(currentWordIndex + 1);
         } else {
           // Game over, handle the end of the game
-        }
+        };
       }, 2000); // Move to the next word after 2 seconds
  };
-*/
+};
 
 return (
 <div>
