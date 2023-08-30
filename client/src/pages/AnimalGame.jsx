@@ -11,6 +11,7 @@ import kangarooImage from '../assets/images/kangaroo.png';
 import monkeyImage from '../assets/images/monkey.jpg';
 import fishImage from '../assets/images/fish.png';
 import mouseImage from '../assets/images/mouse.png';
+import jungleImage from '../assets/images/jungleImage.jpg';
 
 export default function Animals() {
   const allAnimals = [
@@ -136,7 +137,10 @@ export default function Animals() {
   };
 
   return (
-    <div className="bg-white h-screen flex flex-col items-center justify-center">
+    <div 
+      className="h-full w-screen flex flex-col items-center justify-center"
+      style={{ backgroundImage: `url(${jungleImage})`, backgroundSize: 'cover' }}
+    >
       {gameOver ? (
         <div>
           <div className="flex flex-col items-center justify-center">
