@@ -42,7 +42,7 @@ export default function Login() {
     const newLastName = document.querySelector('#user_last_name').value.trim();
     const newChildName = document.querySelector('#child_name').value.trim();
 
-    
+    // stuff
     
   };
 
