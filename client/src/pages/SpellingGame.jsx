@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 
 //list words, answers, images, and sounds in an array
 const wordsAndAnswers = [
-    { word: "_AT", answer: "C" , finalword: "CAT", image: 'cat.jpg'},
-    { word: "BE_", answer: "D" , finalword: "BED" , image: 'bed.jpg' },
-    { word: "BI_D", answer: "R" , finalword: "BIRD", image: 'bird.jpg'},
-    { word: "S_OW", answer: "N" , finalword: "SNOW",image: 'snow.jpg'},
-    { word: "DO_", answer: "G" , finalword: "DOG", image: 'dog.jpg'},
-    { word: "S_N", answer: "U" , finalword: "SUN", image: 'sun.jpg'},
-    { word: "T_Y", answer: "O" , finalword: "TOY", image: 'toy.jpg'},
-    { word: "_AT", answer: "H" , finalword: "HAT", image: 'hat.jpg'},
-    { word: "PI_", answer: "G" , finalword: "PIG", image: 'hat.jpg'},
-    { word: "C_W", answer: "O" , finalword: "COW", image: 'hat.jpg'}
+    { word: "STA_", answer: "R" , finalword: "STAR", image: 'star.jpg' },
+    { word: "AL_EN", answer: "I" , finalword: "ALIEN" , image: 'alien.jpg' },
+    { word: "_ARTH", answer: "E" , finalword: "EARTH", image: 'earth.jpg'},
+    { word: "MO_N", answer: "O" , finalword: "MOON",image: 'moon.jpg'},
+    { word: "SH_P", answer: "I" , finalword: "SHIP", image: 'ship.jpg'},
+    { word: "SU_", answer: "N" , finalword: "SUN", image: 'sun.jpg'},
+    { word: "S_ACE", answer: "P" , finalword: "SPACE", image: 'space.jpg'},
+    { word: "PLA_ET", answer: "N" , finalword: "PLANET", image: 'planet.jpg'},
+    { word: "SK_", answer: "Y" , finalword: "SKY", image: 'sky.jpg'},
+    { word: "C_MET", answer: "O" , finalword: "COMET", image: 'comet.jpg'}
   ];
 
 const generateOptions = (correctAnswer) => {
@@ -58,12 +58,28 @@ const SpellingGame = () => {
     }, 1000); // Move to the next word after 2 seconds
   };
 
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * wordsAndAnswers.length);
+    setCurrentWordIndex(randomIndex);
+
+    const newOptions = generateOptions(wordsAndAnswers[randomIndex].answer);
+    setOptions(newOptions);
+    setSelectedOption(null);
+    setShowAnswer(false);
+  }, [score]);
+
+  
   return (
+    <body
+    style={{
+      backgroundImage: `url('./src/assets/images/spellinggame/space_background.jpg')`,
+    }} >
+
     <div
        style={{
         maxWidth: "500px",
         padding: "1.5rem",
-        backgroundColor: "black",
+        backgroundColor: "white",
         borderRadius: "0.5rem",
         boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
         textAlign: "center",
@@ -121,6 +137,7 @@ const SpellingGame = () => {
         </div>
       </div>
     </div>
+</body>
   );
 };
 
