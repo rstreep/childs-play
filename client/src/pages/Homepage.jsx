@@ -13,9 +13,15 @@ const Homepage = () => {
 
             <div className='max-w-[750px]'>
 
-            <h2 className='text-black font-bold'>Know on the Go!</h2>
-               
+                <h2 className='text-black font-bold'>Know on the Go!</h2>
 
+
+            </div>
+
+              {/* Animiated background section */}
+
+            <div className='max-w-[750px]'>
+                
             </div>
 
 
