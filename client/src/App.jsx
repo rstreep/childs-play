@@ -13,16 +13,16 @@ import Navbar from './components/navbar';
 // } from '@apollo/client';
 // import { setContext } from '@apollo/client/link/context'
 
- function App() {
-  const [count, setCount] = useState(0)
+//  function App() {
+//   const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <Navbar />
-      <Outlet />
-    </>
-  )
-}
+//   return (
+//     <>
+//       <Navbar />
+//       <Outlet />
+//     </>
+//   )
+// }
 
 // function App() {
 //   const [count, setCount] = useState(0)

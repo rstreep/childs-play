@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import SpellingGame from "./pages/SpellingGame";
 import Navbar from './pages/Navbar';
 import './App.css'
-import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
@@ -15,11 +15,11 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     
-
+    
     <HashRouter>
       <div>
 
-      <Navbar />
+    
         <Routes>
 
           <Route path="/animalgame" element={<AnimalGame />} />
