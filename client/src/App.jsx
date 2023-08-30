@@ -13,7 +13,7 @@ import Navbar from './components/navbar';
 // } from '@apollo/client';
 // import { setContext } from '@apollo/client/link/context'
 
-function App() {
+ function App() {
   const [count, setCount] = useState(0)
 
   return (
