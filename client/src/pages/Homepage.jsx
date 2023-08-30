@@ -2,26 +2,30 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import backgroundVideo from '../assets/images/homepage-video.mp4'
+import backgroundVideo from '../assets/images/homepage-video.mp4';
+
 
 
 const Homepage = () => {
 
     return (
-        <div name='home' className=' h-screen bg-[#2b5390]'>
+        <div className=' h-screen bg-[#2b5390]'>
+
+
+      
 
             {/* Main content for homepage*/}
 
-            <div className='max-w-[750px]'>
+            <div>
 
-                <h2 className='text-black font-bold'>Know on the Go!</h2>
+                <h2 className='text-black font-bold'>Know on the Go!!</h2>
 
 
             </div>
 
               {/* Animiated background section */}
 
-            <div className='max-w-[750px]'>
+            <div className='w-screen'>
                 <video autoPlay loop muted id='video'>
                     <source src={backgroundVideo} type='video/mp4' />
 
