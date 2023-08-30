@@ -1,5 +1,5 @@
 /* importing all pages */
-
+import React from 'react'
 import AnimalGame from "./pages/AnimalGame";
 import ColorGame from "./pages/ColorGame";
 import Homepage from "./pages/Homepage";
@@ -7,13 +7,14 @@ import Login from "./pages/Login";
 import SpellingGame from "./pages/SpellingGame";
 import Navbar from './pages/Navbar';
 import './App.css'
+import { Outlet } from 'react-router-dom';
 
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
   return (
-
+    
 
     <HashRouter>
       <div>
