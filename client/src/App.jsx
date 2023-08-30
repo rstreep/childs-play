@@ -46,7 +46,7 @@ function App() {
 
     <ApolloProvider client={client}>
      
-      <div className="flex-column justify-center align-center min-100-vh bg-primary">
+      <div className="flex-row justify-center align-center min-h-screen">
       <Navbar />
         <Outlet />
       </div>
