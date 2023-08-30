@@ -1,5 +1,3 @@
-/* imports */
-
 import React, { useState } from 'react';
 import { FaBars, FaTimes} from 'react-icons/fa';
 
@@ -18,7 +16,7 @@ const Navbar = () => {
     return (
         <div id='nav' className=' w-full h-[100px] flex justify-between items-center px-4 bg-[#2b5390] text-gray-300'>
 
-            <div> <Link to="/">  HOME </Link>
+            <div><Link to="/">HOME </Link>
 
             </div>
 
@@ -28,7 +26,7 @@ const Navbar = () => {
 
                 <ul className='hidden md:flex'>
                     <li>
-                        <Link to="/" >
+                        <Link to="/animalgame" >
                             Animal Game!
                         </Link>
                     </li>
@@ -72,4 +70,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default Navbar
