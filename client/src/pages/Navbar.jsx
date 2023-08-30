@@ -1,6 +1,7 @@
 /* imports */
 
 import React, { useState } from 'react';
+import { FaBars, FaTimes} from 'react-icons/fa';
 
 // import { Link } from 'react-scroll';
 import { Link } from "react-router-dom";
