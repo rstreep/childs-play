@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+#video {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

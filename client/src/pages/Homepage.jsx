@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import backgroundVideo from '../assets/images/homepage-video.mp4'
 
 
 const Homepage = () => {
@@ -21,6 +22,10 @@ const Homepage = () => {
               {/* Animiated background section */}
 
             <div className='max-w-[750px]'>
+                <video autoPlay loop muted id='video'>
+                    <source src={backgroundVideo} type='video/mp4' />
+
+                </video>
                 
             </div>
 
