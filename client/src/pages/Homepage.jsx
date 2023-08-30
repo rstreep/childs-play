@@ -18,10 +18,10 @@ const Homepage = () => {
 
             </div>
 
+              {/* Animiated background section */}
+
             <div className='max-w-[750px]'>
-                <iframe width="420" height="315"
-                    src="">
-                </iframe>
+                
             </div>
 
 
