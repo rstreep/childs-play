@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <div id='nav' className=' w-full h-[100px] flex justify-between items-center px-4 bg-[#2b5390] text-gray-300'>
 
-            <div> <Link to="/"> <img src={logo} alt="Logo" style={{ width: '75px' }} /> HOME </Link>
+            <div> <Link to="/">  HOME </Link>
 
             </div>
 
@@ -72,4 +72,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar;
