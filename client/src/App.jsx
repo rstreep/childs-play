@@ -1,10 +1,7 @@
 
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Outlet } from 'react-router-dom';
-import Navbar from './components/navbar';
+import Navbar from './pages/Navbar';
 
 import {
   ApolloClient,
@@ -48,7 +45,9 @@ function App() {
 
 
     <ApolloProvider client={client}>
+     
       <div className="flex-column justify-center align-center min-100-vh bg-primary">
+      <Navbar />
         <Outlet />
       </div>
     </ApolloProvider>
