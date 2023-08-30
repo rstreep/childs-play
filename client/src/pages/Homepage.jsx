@@ -13,9 +13,15 @@ const Homepage = () => {
 
             <div className='max-w-[750px]'>
 
-            <h2 className='text-black font-bold'>Know on the Go!</h2>
-               
+                <h2 className='text-black font-bold'>Know on the Go!</h2>
 
+
+            </div>
+
+            <div className='max-w-[750px]'>
+                <iframe width="420" height="315"
+                    src="">
+                </iframe>
             </div>
 
 
