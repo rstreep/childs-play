@@ -9,27 +9,29 @@ import backgroundVideo from '../assets/images/homepage-video.mp4';
 const Homepage = () => {
 
     return (
-        <div className=' h-screen bg-[#2b5390]'>
+        <div className='h-screen'>
 
-
-      
 
             {/* Main content for homepage*/}
 
-            <div>
+            {/* <div>
 
                 <h2 className='text-black font-bold'>Know on the Go!!</h2>
 
 
-            </div>
+            </div> */}
 
               {/* Animiated background section */}
 
             <div className='w-screen'>
+
                 <video autoPlay loop muted id='video'>
+
                     <source src={backgroundVideo} type='video/mp4' />
 
                 </video>
+
+                
                 
             </div>
 
