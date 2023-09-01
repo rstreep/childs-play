@@ -15,9 +15,9 @@ const Navbar = () => {
 
 
     return (
-        <div className='flex justify-between p-4 bg-cyan-400'>
+        <div className='flex justify-between p-4 bg-cyan-500'>
 
-            <div className='w-32 h-20 p-4'>
+            <div className='w-32 h-20 p-4 text-2xl'>
                 <Link to="/">  <button type="button" class="cursor-crosshair ...">
                     Home 🏡
                 </button>
@@ -26,29 +26,30 @@ const Navbar = () => {
 
             {/* Navbar menu */}
 
-            <div className='w-40'>
+            <div className='w-40 text-xl m-5'>
 
                 <ul>
 
                     <li><Link to="/login">
-                        Login - Parents! 🖳
+                    🖳 Login Parents  
                     </Link>
                     </li>
+                    <br></br>
 
                     <li>
                         <Link to="/animalgame">
-                            Animal Game 🦋
+                            Which Animal?🦋
                         </Link>
                     </li>
 
                     <li> <Link to="/colorgame">
-                        Color Game 🎨
+                    🎨 Pick A Color
                     </Link></li>
 
 
                     <li>
                         <Link to="/spellinggame">
-                            Let's Spell! 🔠
+                            Space Spells🪐
                         </Link>
                     </li>
 
