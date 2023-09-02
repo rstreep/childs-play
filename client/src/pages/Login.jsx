@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import auth from '../utils/auth';
+import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
 import { ADD_USER } from '../utils/mutations';
 
@@ -10,39 +10,70 @@ export default function Login() {
   const [loginPassword, setLoginPassword] = useState('');
   const [newFirstName, setNewFirstName] = useState('');
   const [newLastName, setNewLastName] = useState('');
+  const [userName, setUserName] = useState('')
   const [newEmail, setNewEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [childName, setChildName] = useState('');
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [login] = useMutation(LOGIN_USER);
+
 
   const toggleCreateAccountForm = () => {
     setShowCreateAccountForm(!showCreateAccountForm);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     console.log('Login Email: ', loginEmail);
     console.log('Login Password: ', loginPassword);
 
-    const email = document.querySelector('#email').value.trim();
-    const password = document.querySelector('#password').value.trim();
+    // const email = document.querySelector('#email').value.trim();
+    // const password = document.querySelector('#password').value.trim();
 
     // if (email && )
 
+    try {
+      const response = await login({
+        variables: { email: loginEmail, password: loginPassword },
+      });
+        console.log(response);
+      Auth.login(response.data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+    
+
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     console.log('First Name: ', newFirstName);
     console.log('Last Name: ', newLastName);
     console.log('New Email: ', newEmail);
     console.log('New Password: ', newPassword);
     console.log('Child Name: ', childName);
 
-    const newEmail = document.querySelector('#new_email').value.trim();
-    const newPassword = document.querySelector('#new_password').value.trim();
-    const newFirstName = document.querySelector('#user_first_name').value.trime();
-    const newLastName = document.querySelector('#user_last_name').value.trim();
-    const newChildName = document.querySelector('#child_name').value.trim();
+    // const newEmail = document.querySelector('#new_email').value.trim();
+    // const newPassword = document.querySelector('#new_password').value.trim();
+    // const newFirstName = document.querySelector('#user_first_name').value.trime();
+    // const newLastName = document.querySelector('#user_last_name').value.trim();
+    // const newChildName = document.querySelector('#child_name').value.trim();
 
     // stuff etc
+
+    const formData = {
+      username: userName.trim(),
+      email: newEmail,
+      password: newPassword,
+
+    }
+    try {
+      const response = await addUser({
+        variables: { ...formData },
+      });
+
+      Auth.login(response.data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
     
   };
 
@@ -53,6 +84,19 @@ export default function Login() {
           <div>
             <header id='create_account_form' className="text-2xl font-semibold text-white">Create an Account</header>
             <div className="space-y-2">
+              <label htmlFor="user_name" className="block font-medium text-gray-700">
+                User Name
+              </label>
+              <input
+                type="text"
+                id="user_name"
+                placeholder="User Name"
+                className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+            </div>
+            {/* <div className="space-y-2">
               <label htmlFor="user_first_name" className="block font-medium text-gray-700">
                 First Name
               </label>
@@ -73,7 +117,7 @@ export default function Login() {
                 placeholder="Last Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
               />
-            </div>
+            </div> */}
             <div className="space-y-2">
               <label htmlFor="new_email" className="block font-medium text-gray-700">
                 Email
@@ -83,6 +127,8 @@ export default function Login() {
                 id="new_email"
                 placeholder="Email"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
               />
             </div>
             <div className="space-y-2">
@@ -94,9 +140,11 @@ export default function Login() {
                 id="new_password"
                 placeholder="Password"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
               />
             </div>
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <label htmlFor="child_name" className="block font-medium text-gray-700">
                 Child's Name
               </label>
@@ -106,7 +154,7 @@ export default function Login() {
                 placeholder="Child's Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
               />
-            </div>
+            </div> */}
             
           </div>
         ) : (
