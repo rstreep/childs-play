@@ -1,9 +1,10 @@
 /* imports */
 
 import React, { useState } from 'react';
-import { FaBars, FaTimes} from 'react-icons/fa';
+
 
 // import { Link } from 'react-scroll';
+
 import { Link } from "react-router-dom";
 
 
@@ -11,60 +12,56 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
-    const [nav, setNav] = useState(false)
-    const handleClick = () => setNav(!nav)
 
 
     return (
-        <div id='nav' className=' w-full h-[100px] flex justify-between items-center px-4 bg-[#2b5390] text-gray-300'>
+        <div className='flex justify-between p-4 bg-cyan-500'>
 
-            <div> <Link to="/">  HOME </Link>
-
+            <div className='w-32 h-20 p-4 text-2xl'>
+                <Link to="/">  <button type="button" class="cursor-crosshair ...">
+                    Home 🏡
+                </button>
+                </Link>
             </div>
 
             {/* Navbar menu */}
 
-            <div className='hidden md:flex' >
+            <div className='w-40 text-xl m-5'>
 
-                <ul className='hidden md:flex'>
+                <ul>
+
+                    <li><Link to="/login">
+                    🖳 Login Parents  
+                    </Link>
+                    </li>
+                    <br></br>
+
                     <li>
-                        <Link to="/" >
-                            Animal Game!
+                        <Link to="/animalgame">
+                            Which Animal?🦋
                         </Link>
                     </li>
-                    <li> <Link to="/colorgame" >
-                        Color Game!
-                    </Link></li>
-                    <li><Link to="/login"  >
-                        Login
+
+                    <li> <Link to="/colorgame">
+                    🎨 Pick A Color
                     </Link></li>
 
-                    <li><Link to="/spellinggame">
-                        Let's Spell!
-                    </Link></li>
+
+                    <li>
+                        <Link to="/spellinggame">
+                            Space Spells🪐
+                        </Link>
+                    </li>
 
                 </ul>
 
-            </div>
 
 
-            {/* Hamburger menu */}
-            <div onClick={handleClick} className='md:hidden z-10' >
-
-                {!nav ? <FaBars /> : <FaTimes />}
 
             </div>
 
 
-
-            {/* Mobile menu */}
-
-            <ul className={!nav ? 'hidden' : 'absolute top-0 left-0 w-full h-screen bg-[#7299d2] flex flex-col justify-center items-center'}>
-                <li className='py-5 text-3xl'>Animal Game</li>
-                <li className='py-5 text-3xl'>Color Game</li>
-                <li className='py-5 text-3xl'>Homepage</li>
-                <li className='py-5 text-3xl'>Spelling Game</li>
-            </ul>
+           
 
 
 
