@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Modal from "../components/modal";  //import new modal component
 
 //list words, answers, images, and sounds in an array
 const wordsAndAnswers = [
@@ -55,7 +56,7 @@ const SpellingGame = () => {
       } else {
         // Game over, handle the end of the game
       }
-    }, 1000); // Move to the next word after 2 seconds
+    }, 2000); // Move to the next word after 2 seconds
   };
 
   useEffect(() => {
@@ -161,6 +162,14 @@ const SpellingGame = () => {
             </button>
           ))}
         </div>
+        {showAnswer && (
+          <Modal
+            message={modalMessage}
+            onClose={() => {
+              setToggleModal(false);
+            }}
+        />
+        )}
       </div>
     </div>
 </div>
