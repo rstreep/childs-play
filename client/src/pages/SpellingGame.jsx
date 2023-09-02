@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Modal from "../components/modal";  //import new modal component
 
 //list words, answers, images, and sounds in an array
 const wordsAndAnswers = [
@@ -55,7 +56,7 @@ const SpellingGame = () => {
       } else {
         // Game over, handle the end of the game
       }
-    }, 1000); // Move to the next word after 2 seconds
+    }, 2000); // Move to the next word after 2 seconds
   };
 
   useEffect(() => {
@@ -70,11 +71,18 @@ const SpellingGame = () => {
 
   
   return (
-    <body
-    style={{
-      backgroundImage: `url('./src/assets/images/spellinggame/space_background.jpg')`,
-    }} >
 
+<div 
+  style={{
+    display: 'flex',
+    justifyContent: 'center', 
+    alignItems: 'center',
+    minHeight: '100vh', 
+    backgroundImage: `url('./src/assets/images/spellinggame/space_background.jpg')`,
+    backgroundSize: 'cover', 
+    backgroundRepeat: 'no-repeat',
+  }}
+  >
     <div
        style={{
         maxWidth: "500px",
@@ -96,23 +104,42 @@ const SpellingGame = () => {
            marginBottom: "1rem",
         }}>
         <h2>What letter is missing from the word? </h2>
-        <img
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center' 
+          }}>
+          <img
             style={{
-            width: "35%",
-            marginBottom: "1rem",
+              width: '35%', // Adjust the width as needed
+              marginBottom: '1rem',
             }}
-          src={`./src/assets/images/spellinggame/${currentWordInfo.image}`}
-          alt={currentWordInfo.finalword}
-        />
-
+            src={`./src/assets/images/spellinggame/${currentWordInfo.image}`}
+            alt={currentWordInfo.finalword}
+          />
+        </div>
         {showAnswer ? (
           <p className="answer">{currentWordInfo.word}</p>
         ) : (
           <p>{currentWordInfo.word.replace(selectedOption, "_")}</p>
         )}
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent:"space-around",
+            flexWrap: "wrap",
+          }}
+        >
           {options.map((option, index) => (
-            <button
+            <button   
+            style={{            
+            backgroundColor: "#3949ab",
+            color: "#00bcd4",
+            padding: "0.5rem",
+            borderRadius: "0.25rem",
+            width: "45%",
+            margin: "0.5rem",
+            fontWeight: "bold",
+            }}
               key={index}
               className={`
                 option
@@ -135,9 +162,17 @@ const SpellingGame = () => {
             </button>
           ))}
         </div>
+        {showAnswer && (
+          <Modal
+            message={modalMessage}
+            onClose={() => {
+              setToggleModal(false);
+            }}
+        />
+        )}
       </div>
     </div>
-</body>
+</div>
   );
 };
 
