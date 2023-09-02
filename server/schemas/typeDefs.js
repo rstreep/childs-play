@@ -24,7 +24,9 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    updateSpellingGameHighScore(spellingGameHighScore: Int!): User
   }
+
 `;
 
 module.exports = typeDefs;
