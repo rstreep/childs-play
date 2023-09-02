@@ -26,7 +26,7 @@ const Navbar = () => {
 
             {/* Navbar menu */}
 
-            <div className='w-40 text-xl m-5'>
+            <div className='md:w-32 lg:w-48 text-xl m-3'>
 
                 <ul>
 

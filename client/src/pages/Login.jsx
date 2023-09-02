@@ -36,13 +36,15 @@ export default function Login() {
     console.log('New Password: ', newPassword);
     console.log('Child Name: ', childName);
 
-    const newEmail = document.querySelector('#new_email').value.trim();
-    const newPassword = document.querySelector('#new_password').value.trim();
-    const newFirstName = document.querySelector('#user_first_name').value.trime();
-    const newLastName = document.querySelector('#user_last_name').value.trim();
-    const newChildName = document.querySelector('#child_name').value.trim();
+    // State is already declared - updating state function. 
 
-    // stuff etc
+    setNewEmail(document.querySelector('#new_email').value.trim())
+    setNewPassword(document.querySelector('#new_password').value.trim())
+    setNewFirstName(document.querySelector('#user_first_name').value.trim())
+    setNewLastName(document.querySelector('#user_last_name').value.trim())
+    setChildName(document.querySelector('#child_name').value.trim())
+
+  
     
   };
 

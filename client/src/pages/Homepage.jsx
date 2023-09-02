@@ -23,13 +23,13 @@ const Homepage = () => {
 
               {/* Animiated background section */}
 
-            <div className='w-screen'>
+            <div className='h-82 w-full'>
 
-                <video autoPlay loop muted id='video'>
+            <video autoPlay loop muted id='video'>
 
                     <source src={backgroundVideo} type='video/mp4' />
 
-                </video>
+                </video> 
 
                 
                 
