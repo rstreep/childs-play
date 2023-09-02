@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 
 //list words, answers, images, and sounds in an array
 const wordsAndAnswers = [
-    { word: "_AT", answer: "C" , finalword: "CAT", image: 'cat.jpg'},
-    { word: "BE_", answer: "D" , finalword: "BED" , image: 'bed.jpg' },
-    { word: "BI_D", answer: "R" , finalword: "BIRD", image: 'bird.jpg'},
-    { word: "S_OW", answer: "N" , finalword: "SNOW",image: 'snow.jpg'},
-    { word: "DO_", answer: "G" , finalword: "DOG", image: 'dog.jpg'},
-    { word: "S_N", answer: "U" , finalword: "SUN", image: 'sun.jpg'},
-    { word: "T_Y", answer: "O" , finalword: "TOY", image: 'toy.jpg'},
-    { word: "_AT", answer: "H" , finalword: "HAT", image: 'hat.jpg'},
-    { word: "PI_", answer: "G" , finalword: "PIG", image: 'hat.jpg'},
-    { word: "C_W", answer: "O" , finalword: "COW", image: 'hat.jpg'}
+    { word: "STA_", answer: "R" , finalword: "STAR", image: 'star.jpg' },
+    { word: "AL_EN", answer: "I" , finalword: "ALIEN" , image: 'alien.jpg' },
+    { word: "_ARTH", answer: "E" , finalword: "EARTH", image: 'earth.jpg'},
+    { word: "MO_N", answer: "O" , finalword: "MOON",image: 'moon.jpg'},
+    { word: "SH_P", answer: "I" , finalword: "SHIP", image: 'ship.jpg'},
+    { word: "SU_", answer: "N" , finalword: "SUN", image: 'sun.jpg'},
+    { word: "S_ACE", answer: "P" , finalword: "SPACE", image: 'space.jpg'},
+    { word: "PLA_ET", answer: "N" , finalword: "PLANET", image: 'planet.jpg'},
+    { word: "SK_", answer: "Y" , finalword: "SKY", image: 'sky.jpg'},
+    { word: "C_MET", answer: "O" , finalword: "COMET", image: 'comet.jpg'}
   ];
 
 const generateOptions = (correctAnswer) => {
@@ -55,30 +55,90 @@ const SpellingGame = () => {
       } else {
         // Game over, handle the end of the game
       }
-    }, 2000); // Move to the next word after 2 seconds
+    }, 1000); // Move to the next word after 2 seconds
   };
 
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * wordsAndAnswers.length);
+    setCurrentWordIndex(randomIndex);
+
+    const newOptions = generateOptions(wordsAndAnswers[randomIndex].answer);
+    setOptions(newOptions);
+    setSelectedOption(null);
+    setShowAnswer(false);
+  }, [score]);
+
+  
   return (
-    <div>
-      <h1>Spelling Game</h1>
+
+<div 
+  style={{
+    display: 'flex',
+    justifyContent: 'center', 
+    alignItems: 'center',
+    minHeight: '100vh', 
+    backgroundImage: `url('./src/assets/images/spellinggame/space_background.jpg')`,
+    backgroundSize: 'cover', 
+    backgroundRepeat: 'no-repeat',
+  }}
+  >
+    <div
+       style={{
+        maxWidth: "500px",
+        padding: "1.5rem",
+        backgroundColor: "white",
+        borderRadius: "0.5rem",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        textAlign: "center",
+      }} >
+      <h1      style={{
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                marginBottom: "1rem",
+              }}>Spelling Game</h1>
       <div>
         <p>Score: {score}</p>
       </div>
-      <div>
+      <div style={{
+           marginBottom: "1rem",
+        }}>
         <h2>What letter is missing from the word? </h2>
-        <img
-          src={`./assets/images/${currentWordInfo.image}`}
-          alt={currentWordInfo.word}
-        />
-
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center' 
+          }}>
+          <img
+            style={{
+              width: '35%', // Adjust the width as needed
+              marginBottom: '1rem',
+            }}
+            src={`./src/assets/images/spellinggame/${currentWordInfo.image}`}
+            alt={currentWordInfo.finalword}
+          />
+        </div>
         {showAnswer ? (
           <p className="answer">{currentWordInfo.word}</p>
         ) : (
           <p>{currentWordInfo.word.replace(selectedOption, "_")}</p>
         )}
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent:"space-around",
+            flexWrap: "wrap",
+          }}
+        >
           {options.map((option, index) => (
-            <button
+            <button   
+            style={{            
+            backgroundColor: "#3949ab",
+            color: "#00bcd4",
+            padding: "0.5rem",
+            borderRadius: "0.25rem",
+            width: "45%",
+            margin: "0.5rem",
+            fontWeight: "bold",
+            }}
               key={index}
               className={`
                 option
@@ -103,6 +163,7 @@ const SpellingGame = () => {
         </div>
       </div>
     </div>
+</div>
   );
 };
 

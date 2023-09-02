@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import auth from '../utils/auth';
+import { LOGIN_USER } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 export default function Login() {
   const [showCreateAccountForm, setShowCreateAccountForm] = useState(false);
@@ -17,6 +21,12 @@ export default function Login() {
   const handleLogin = () => {
     console.log('Login Email: ', loginEmail);
     console.log('Login Password: ', loginPassword);
+
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
+
+    // if (email && )
+
   };
 
   const handleRegister = () => {
@@ -25,6 +35,15 @@ export default function Login() {
     console.log('New Email: ', newEmail);
     console.log('New Password: ', newPassword);
     console.log('Child Name: ', childName);
+
+    const newEmail = document.querySelector('#new_email').value.trim();
+    const newPassword = document.querySelector('#new_password').value.trim();
+    const newFirstName = document.querySelector('#user_first_name').value.trime();
+    const newLastName = document.querySelector('#user_last_name').value.trim();
+    const newChildName = document.querySelector('#child_name').value.trim();
+
+    // stuff etc
+    
   };
 
   return (

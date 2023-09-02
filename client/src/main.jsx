@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App from './App'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Homepage from "./pages/Homepage.jsx";
 import Login from "./pages/Login.jsx";
 import AnimalGame from "./pages/AnimalGame.jsx";
-import ColorGame from "../src/components/color_components.jsx";
+import ColorGame from "./components/color_components";
 import SpellingGame from "./pages/SpellingGame.jsx";
 
 const routes = [

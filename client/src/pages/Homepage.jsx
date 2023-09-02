@@ -2,24 +2,37 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import backgroundVideo from '../assets/images/homepage-video.mp4';
+
 
 
 const Homepage = () => {
 
     return (
-        <div name='home' className=' h-screen bg-[#2b5390]'>
+        <div className='h-screen'>
+
 
             {/* Main content for homepage*/}
 
-            <div className='max-w-[750px]'>
+            {/* <div>
+
+                <h2 className='text-black font-bold'>Know on the Go!!</h2>
 
 
-                <Link to="/">
-                    <button className='text-white group border-2 px-1 py-3 my-3 flex justify-center hover:bg-[#8BB7CC] hover:border-black'>
+            </div> */}
 
-                    </button>  </Link>
+              {/* Animiated background section */}
 
+            <div className='w-screen'>
 
+                <video autoPlay loop muted id='video'>
+
+                    <source src={backgroundVideo} type='video/mp4' />
+
+                </video>
+
+                
+                
             </div>
 
 
