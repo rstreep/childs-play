@@ -21,6 +21,17 @@ mutation AddUser($username: String!, $email: String!, $password: String!) {
       username
     }
   }
+
 }
+
+
 `;
+
+export const UPDATE_SPELLING_GAME_SCORE = gql`
+mutation UpdateSpellingGameHighScore($spellingGameHighScore: Int!) {
+  updateSpellingGameHighScore(spellingGameHighScore: $spellingGameHighScore) {
+    username
+    spellingGameHighScore
+  }
+}`
 
