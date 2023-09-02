@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
 import { ADD_USER } from '../utils/mutations';
+import axios from 'axios'
 
 export default function Login() {
   const [showCreateAccountForm, setShowCreateAccountForm] = useState(false);
@@ -37,14 +38,19 @@ export default function Login() {
     console.log('Child Name: ', childName);
 
     // State is already declared - updating state function. 
+    let obj = {
+      email: newEmail,
+      password: newPassword,
+      firstName: newFirstName,
+      lastName: newLastName,
+      childName: childName
+    }
 
-    setNewEmail(document.querySelector('#new_email').value.trim())
-    setNewPassword(document.querySelector('#new_password').value.trim())
-    setNewFirstName(document.querySelector('#user_first_name').value.trim())
-    setNewLastName(document.querySelector('#user_last_name').value.trim())
-    setChildName(document.querySelector('#child_name').value.trim())
+    axios.post('http://localhost:3001/api/auth/newUser', obj)
+    .then((res) => {
+      console.log(res)
+    })
 
-  
     
   };
 
@@ -63,6 +69,7 @@ export default function Login() {
                 id="user_first_name"
                 placeholder="First Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange = {(e) => {setNewFirstName(e.target.value.trim())}}
               />
             </div>
             <div className="space-y-2">
@@ -74,6 +81,7 @@ export default function Login() {
                 id="user_last_name"
                 placeholder="Last Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange={(e) => {setNewLastName(e.target.value.trim())}}
               />
             </div>
             <div className="space-y-2">
@@ -85,6 +93,7 @@ export default function Login() {
                 id="new_email"
                 placeholder="Email"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange={(e) => {setNewEmail(e.target.value.trim())}}
               />
             </div>
             <div className="space-y-2">
@@ -96,6 +105,7 @@ export default function Login() {
                 id="new_password"
                 placeholder="Password"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange={(e) => {setNewPassword(e.target.value.trim())}}
               />
             </div>
             <div className="space-y-2">
@@ -107,6 +117,7 @@ export default function Login() {
                 id="child_name"
                 placeholder="Child's Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange={(e) => {setChildName(e.target.value.trim())}}
               />
             </div>
             

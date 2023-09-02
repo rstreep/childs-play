@@ -3,6 +3,7 @@ const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+const cors = require('cors')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -13,6 +14,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
+const authRoutes = require('./routes/auth')
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {
@@ -24,6 +26,10 @@ const startApolloServer = async () => {
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware
   }));
+
+  app.use(cors())
+
+  app.use('/api/auth', authRoutes)
 
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
