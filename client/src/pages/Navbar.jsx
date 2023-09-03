@@ -24,6 +24,10 @@ const Navbar = () => {
                 </Link>
             </div>
 
+            <div>
+                <h1 id='title'> Know on the Go! ✏️ </h1>
+            </div>
+
             {/* Navbar menu */}
 
             <div className='md:w-32 lg:w-48 text-xl m-3'>

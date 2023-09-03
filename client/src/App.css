@@ -16,3 +16,10 @@
     color: #ffffff;
     box-shadow: inset 200px 0 0 0 #005596;
   }
+
+  #title {
+    font-family: "Comic Neue", sans-serif;
+    font-size: 5vw;
+    margin-left: 58px;
+    
+  }
