@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 //import Modal from "../components/modal.jsx";
 
-//list words, answers, and images in an array
+//list words, answers, images, and sounds in an array
 const wordsAndAnswers = [
     { word: "STA_", answer: "R" , finalword: "STAR", image: 'star.jpg' },
     { word: "AL_EN", answer: "I" , finalword: "ALIEN" , image: 'alien.jpg' },
     { word: "_ARTH", answer: "E" , finalword: "EARTH", image: 'earth.jpg'},
-    { word: "MOO_", answer: "N" , finalword: "MOON",image: 'moon.jpg'},
+    { word: "MO_N", answer: "O" , finalword: "MOON",image: 'moon.jpg'},
     { word: "SH_P", answer: "I" , finalword: "SHIP", image: 'ship.jpg'},
     { word: "SU_", answer: "N" , finalword: "SUN", image: 'sun.jpg'},
     { word: "S_ACE", answer: "P" , finalword: "SPACE", image: 'space.jpg'},
@@ -15,7 +15,6 @@ const wordsAndAnswers = [
     { word: "C_MET", answer: "O" , finalword: "COMET", image: 'comet.jpg'}
   ];
 
-// function to generate question options.
 const generateOptions = (correctAnswer) => {
     const options = [correctAnswer];
     while (options.length < 4) {
@@ -35,13 +34,9 @@ const SpellingGame = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-  const [toggleModal, setToggleModal] = useState(false);
-  const [showNextWord, setShowNextWord] = useState(false); 
-  
-  const currentWordInfo = wordsAndAnswers[currentWordIndex];
+  const [showModal, setShowModal] = useState(false);
 
-  //check if answer is correct
-  const isCorrectAnswer = (option) => option === currentWordInfo.answer;
+  const currentWordInfo = wordsAndAnswers[currentWordIndex];
 
   useEffect(() => {
     const newOptions = generateOptions(currentWordInfo.answer);
@@ -50,46 +45,37 @@ const SpellingGame = () => {
     setShowAnswer(false);
   }, [currentWordInfo]);
 
-  //define what happens when an option is clicked
   const handleOptionClick = (option) => {
-    if (isCorrectAnswer(option)) {
+    if (option === currentWordInfo.answer) {
       setModalMessage("Correct Answer!");
-      setShowAnswer(true);
-      setShowNextWord(true);
     } else {
       setModalMessage("Wrong answer! Try guessing again.");
-      setShowAnswer(false);
-      setShowNextWord(false);
     }
-
-    setSelectedOption(option); // Always set the selected option
-    setToggleModal(true);
+    
+    setShowModal(true); // Show the modal immediately
+  
+    setTimeout(() => {
+      if (currentWordIndex < wordsAndAnswers.length - 1) {
+        setCurrentWordIndex(currentWordIndex + 1);
+      }
+      setModalMessage("");
+      setShowAnswer(false);
+      setSelectedOption(null);
+      setShowModal(false);
+    }, 2000);
   };
 
-  // generate a new word
-  const moveToNextWord = () => {
+  useEffect(() => {
     const randomIndex = Math.floor(Math.random() * wordsAndAnswers.length);
     setCurrentWordIndex(randomIndex);
+
     const newOptions = generateOptions(wordsAndAnswers[randomIndex].answer);
     setOptions(newOptions);
     setSelectedOption(null);
     setShowAnswer(false);
-    setShowNextWord(false); 
-  };
+  }, [showModal]); 
 
-  useEffect(() => {
-    const newOptions = generateOptions(currentWordInfo.answer);
-    setOptions(newOptions);
-    setSelectedOption(null);
-    setShowAnswer(false);
-  }, [currentWordInfo]);
-
-  useEffect(() => {
-    if (showNextWord && isCorrectAnswer(selectedOption)) {
-      moveToNextWord();
-    }
-  }, [showNextWord, selectedOption]);
-
+  
   return (
 
 <div 
@@ -135,9 +121,9 @@ const SpellingGame = () => {
           />
         </div>
         {showAnswer ? (
-         <p className="answer">{currentWordInfo.word}</p>
+          <p className="answer">{currentWordInfo.word}</p>
         ) : (
-         <p>{currentWordInfo.word.replace(currentWordInfo.answer, "_")}</p>
+          <p>{currentWordInfo.word.replace(selectedOption, "_")}</p>
         )}
         <div
           style={{
@@ -179,51 +165,18 @@ const SpellingGame = () => {
             </button>
           ))}
         </div>
-        {toggleModal && (
-        <div
-          style={{
-            position: "fixed",
-            top: "0",
-            left: "0",
-            width: "100%",
-            height: "100vh",
-            background: "rgba(0, 0, 0, 0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: "9999",
-          }}
-        >
-          <div
-            style={{
-              background: "grey",
-              color: "white",
-              padding: "1rem",
-              borderRadius: "0.5rem",
-              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        {/* The following line is correct and should not be removed */}
+        {showAnswer && (
+          <Modal
+            message={modalMessage}
+            onClose={() => {
+              setShowModal(false);
             }}
-          >
-            <h3>{modalMessage}</h3>
-            <button
-              style={{
-                backgroundColor: "black",
-                color: "white",
-                padding: "0.5rem 1rem",
-                borderRadius: "0.25rem",
-                border: "none",
-                cursor: "pointer",
-                marginTop: "1rem",
-              }}
-              onClick={() => setToggleModal(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+          />
+        )}
+      </div>
     </div>
   </div>
-</div>
 );
 };
 
