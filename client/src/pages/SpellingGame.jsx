@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Modal from "../components/modal";  //import new modal component
+//import Modal from "../components/modal.jsx";
 
-//list words, answers, images, and sounds in an array
+//list words, answers, and images in an array
 const wordsAndAnswers = [
     { word: "STA_", answer: "R" , finalword: "STAR", image: 'star.jpg' },
     { word: "AL_EN", answer: "I" , finalword: "ALIEN" , image: 'alien.jpg' },
     { word: "_ARTH", answer: "E" , finalword: "EARTH", image: 'earth.jpg'},
-    { word: "MO_N", answer: "O" , finalword: "MOON",image: 'moon.jpg'},
+    { word: "MOO_", answer: "N" , finalword: "MOON",image: 'moon.jpg'},
     { word: "SH_P", answer: "I" , finalword: "SHIP", image: 'ship.jpg'},
     { word: "SU_", answer: "N" , finalword: "SUN", image: 'sun.jpg'},
     { word: "S_ACE", answer: "P" , finalword: "SPACE", image: 'space.jpg'},
@@ -15,6 +15,7 @@ const wordsAndAnswers = [
     { word: "C_MET", answer: "O" , finalword: "COMET", image: 'comet.jpg'}
   ];
 
+// function to generate question options.
 const generateOptions = (correctAnswer) => {
     const options = [correctAnswer];
     while (options.length < 4) {
@@ -30,12 +31,17 @@ const generateOptions = (correctAnswer) => {
 
 const SpellingGame = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [score, setScore] = useState(0);
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
-
+  const [modalMessage, setModalMessage] = useState("");
+  const [toggleModal, setToggleModal] = useState(false);
+  const [showNextWord, setShowNextWord] = useState(false); 
+  
   const currentWordInfo = wordsAndAnswers[currentWordIndex];
+
+  //check if answer is correct
+  const isCorrectAnswer = (option) => option === currentWordInfo.answer;
 
   useEffect(() => {
     const newOptions = generateOptions(currentWordInfo.answer);
@@ -44,32 +50,46 @@ const SpellingGame = () => {
     setShowAnswer(false);
   }, [currentWordInfo]);
 
+  //define what happens when an option is clicked
   const handleOptionClick = (option) => {
-    if (option === currentWordInfo.answer) {
-      setScore(score + 1);
+    if (isCorrectAnswer(option)) {
+      setModalMessage("Correct Answer!");
+      setShowAnswer(true);
+      setShowNextWord(true);
+    } else {
+      setModalMessage("Wrong answer! Try guessing again.");
+      setShowAnswer(false);
+      setShowNextWord(false);
     }
-    setSelectedOption(option);
-    setShowAnswer(true);
-    setTimeout(() => {
-      if (currentWordIndex < wordsAndAnswers.length - 1) {
-        setCurrentWordIndex(currentWordIndex + 1);
-      } else {
-        // Game over, handle the end of the game
-      }
-    }, 2000); // Move to the next word after 2 seconds
+
+    setSelectedOption(option); // Always set the selected option
+    setToggleModal(true);
   };
 
-  useEffect(() => {
+  // generate a new word
+  const moveToNextWord = () => {
     const randomIndex = Math.floor(Math.random() * wordsAndAnswers.length);
     setCurrentWordIndex(randomIndex);
-
     const newOptions = generateOptions(wordsAndAnswers[randomIndex].answer);
     setOptions(newOptions);
     setSelectedOption(null);
     setShowAnswer(false);
-  }, [score]);
+    setShowNextWord(false); 
+  };
 
-  
+  useEffect(() => {
+    const newOptions = generateOptions(currentWordInfo.answer);
+    setOptions(newOptions);
+    setSelectedOption(null);
+    setShowAnswer(false);
+  }, [currentWordInfo]);
+
+  useEffect(() => {
+    if (showNextWord && isCorrectAnswer(selectedOption)) {
+      moveToNextWord();
+    }
+  }, [showNextWord, selectedOption]);
+
   return (
 
 <div 
@@ -97,9 +117,6 @@ const SpellingGame = () => {
                 fontWeight: "bold",
                 marginBottom: "1rem",
               }}>Spelling Game</h1>
-      <div>
-        <p>Score: {score}</p>
-      </div>
       <div style={{
            marginBottom: "1rem",
         }}>
@@ -108,9 +125,9 @@ const SpellingGame = () => {
           display: 'flex', 
           justifyContent: 'center' 
           }}>
-          <img
+        <img
             style={{
-              width: '35%', // Adjust the width as needed
+              width: '35%',
               marginBottom: '1rem',
             }}
             src={`./src/assets/images/spellinggame/${currentWordInfo.image}`}
@@ -118,28 +135,28 @@ const SpellingGame = () => {
           />
         </div>
         {showAnswer ? (
-          <p className="answer">{currentWordInfo.word}</p>
+         <p className="answer">{currentWordInfo.word}</p>
         ) : (
-          <p>{currentWordInfo.word.replace(selectedOption, "_")}</p>
+         <p>{currentWordInfo.word.replace(currentWordInfo.answer, "_")}</p>
         )}
         <div
           style={{
             display: "flex",
-            justifyContent:"space-around",
+            justifyContent: "space-around",
             flexWrap: "wrap",
           }}
         >
           {options.map((option, index) => (
-            <button   
-            style={{            
-            backgroundColor: "#3949ab",
-            color: "#00bcd4",
-            padding: "0.5rem",
-            borderRadius: "0.25rem",
-            width: "45%",
-            margin: "0.5rem",
-            fontWeight: "bold",
-            }}
+            <button
+              style={{
+                backgroundColor: "#3949ab",
+                color: "#00bcd4",
+                padding: "0.5rem",
+                borderRadius: "0.25rem",
+                width: "45%",
+                margin: "0.5rem",
+                fontWeight: "bold",
+              }}
               key={index}
               className={`
                 option
@@ -162,18 +179,52 @@ const SpellingGame = () => {
             </button>
           ))}
         </div>
-        {showAnswer && (
-          <Modal
-            message={modalMessage}
-            onClose={() => {
-              setToggleModal(false);
+        {toggleModal && (
+        <div
+          style={{
+            position: "fixed",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "100vh",
+            background: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: "9999",
+          }}
+        >
+          <div
+            style={{
+              background: "grey",
+              color: "white",
+              padding: "1rem",
+              borderRadius: "0.5rem",
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
             }}
-        />
-        )}
-      </div>
+          >
+            <h3>{modalMessage}</h3>
+            <button
+              style={{
+                backgroundColor: "black",
+                color: "white",
+                padding: "0.5rem 1rem",
+                borderRadius: "0.25rem",
+                border: "none",
+                cursor: "pointer",
+                marginTop: "1rem",
+              }}
+              onClick={() => setToggleModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
+  </div>
 </div>
-  );
+);
 };
 
 export default SpellingGame;
