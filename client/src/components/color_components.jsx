@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ColorQuestions from '../assets/questions_color/colorGame';
-
+import food_wallpaper from '../assets/images/colorgame/food_wallpaper.jpg'
 const getRandomColor = () => {
   const randomIndex = Math.floor(Math.random() * ColorQuestions.length);
   return ColorQuestions[randomIndex];
@@ -57,19 +57,27 @@ const ColorGame = () => {
   return (
     <div
       style={{
-        maxWidth: "500px",
-        padding: "1.5rem",
-        backgroundColor: "black",
-        borderRadius: "0.5rem",
-        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-        textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        backgroundImage: `url(${food_wallpaper})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        
       }}
     >
+      <div style={{width: "50%", backgroundColor:"white", display:"flex",  flexWrap:"wrap", flexDirection:"column"}}>
+
+    
       <div
         style={{
           fontSize: "1.5rem",
           fontWeight: "bold",
           marginBottom: "1rem",
+          position: "relative",
+          left: "44%"
+
         }}
       >
         Color Game
@@ -77,6 +85,8 @@ const ColorGame = () => {
       <div
         style={{
           marginBottom: "1rem",
+          position: "relative",
+          left: "41%"
         }}
       >
         {displayColorQuestion?.question}
@@ -84,8 +94,14 @@ const ColorGame = () => {
 
       <img
         style={{
-          width: "35%",
+          width: "40%",
+          height: "40vh",
           marginBottom: "1rem",
+          display:"flex",
+          justifyContent:"center",
+          position: "relative",
+          left: "30%"
+        
         }}
         src={displayColorQuestion?.img}
         alt="Question"
@@ -211,6 +227,7 @@ const ColorGame = () => {
           </div>
         </div>
       )}
+        </div>
     </div>
   );
 };
