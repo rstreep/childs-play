@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import Modal from "../components/modal.jsx";
 
 //list words, answers, and images in an array
 const wordsAndAnswers = [
