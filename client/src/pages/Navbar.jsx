@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
-
+ {/* Navbar menu - Home*/}
 
     return (
         <div className='flex justify-between p-4 bg-cyan-500'>
