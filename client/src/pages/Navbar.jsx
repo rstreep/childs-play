@@ -12,44 +12,48 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
-
+ {/* Navbar menu - Home*/}
 
     return (
         <div className='flex justify-between p-4 bg-cyan-500'>
 
             <div className='w-32 h-20 p-4 text-2xl'>
                 <Link to="/">  <button type="button" class="cursor-crosshair ...">
-                    Home 🏡
+                    <p id='font'>Home 🏡</p>
                 </button>
                 </Link>
             </div>
 
+            <div>
+                <h1 id='title'> Know on the Go! ✏️ </h1>
+            </div>
+
             {/* Navbar menu */}
 
-            <div className='w-40 text-xl m-5'>
+            <div className='md:w-32 lg:w-48 text-xl m-3'>
 
                 <ul>
 
                     <li><Link to="/login">
-                    🖳 Login Parents  
+                    <p id='font'>🖳 Login Parents  </p>
                     </Link>
                     </li>
                     <br></br>
 
                     <li>
                         <Link to="/animalgame">
-                            Which Animal?🦋
+                        <p id='font'> Which Animal?🦋</p>
                         </Link>
                     </li>
 
                     <li> <Link to="/colorgame">
-                    🎨 Pick A Color
+                    <p id='font'>🎨 Pick A Color </p>
                     </Link></li>
 
 
                     <li>
                         <Link to="/spellinggame">
-                            Space Spells🪐
+                        <p id='font'> Space Spells🪐</p>
                         </Link>
                     </li>
 

@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
 import { ADD_USER } from '../utils/mutations';
+import axios from 'axios'
 
 export default function Login() {
   const [showCreateAccountForm, setShowCreateAccountForm] = useState(false);
@@ -105,6 +106,7 @@ export default function Login() {
                 id="user_first_name"
                 placeholder="First Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange = {(e) => {setNewFirstName(e.target.value.trim())}}
               />
             </div>
             <div className="space-y-2">
@@ -116,6 +118,7 @@ export default function Login() {
                 id="user_last_name"
                 placeholder="Last Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange={(e) => {setNewLastName(e.target.value.trim())}}
               />
             </div> */}
             <div className="space-y-2">
@@ -153,6 +156,7 @@ export default function Login() {
                 id="child_name"
                 placeholder="Child's Name"
                 className="border rounded px-3 py-2 w-full bg-white text-black shadow-md"
+                onChange={(e) => {setChildName(e.target.value.trim())}}
               />
             </div> */}
             
