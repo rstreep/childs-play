@@ -14,10 +14,13 @@
 
 ## Description
 
-Desciption goes here
+Constructed a children's learning application, featuring 3 educational games and parent login / access to the site.
+
+### Deployed Link:
+
 
 ## Project Details:
-Welcome to “Know on the Go”—an educational platform designed to engage and educate young minds. Intended for ages 3-5, the app is equipped with three learning games—'Identify Animals,' Fix the Spelling,' and 'Identify Food Colors'—children can enjoy interactive challenges that promote learning in a playful environment. The app features a secure parental verification process, ensuring a controlled and safe experience for children. Know on the Go offers a simple yet effective way for children to have fun while enhancing their skills.
+Welcome to “Know on the Go!”: an educational platform designed to engage and educate young minds. Intended for ages 3-5, the app is equipped with three learning games—'Identify Animals,' Fix the Spelling,' and 'Identify Food Colors'—children can enjoy interactive challenges that promote learning in a playful environment. The app features a secure parental verification process, ensuring a controlled and safe experience for children. Know on the Go offers a simple yet effective way for children to have fun while enhancing their skills.
 
 ## User Story
 ### Parent
@@ -58,15 +61,28 @@ SO THAT I can be engaged in a fun learning experience.
 - Contact form for parents to submit suggestions and concerns to the company.
 
 ## Key Features
-
-
+- Authentication: Account set up and log in for parents.
+- Connectivity: A central homepage where parents can comment on games, and contact the company.
+- Education: 3 Interactive Learning Games: Animals, Colors, Spelling.
+- Our application uses the following technologies:
+  - React
+  - NoSQL
+  - Mongoose / MongoDB [Atlas]
+  - Apollo Server with GraphQL
+  - Tailwind (Main CSS Framework)
+  - Google Fonts
+  - BCrypt
+  - Express
+  - Vite & React Router
 
 ## Installation
+This application uses Node.js (min v16)
 
-
+1. Execute "npm install" to install depedencies.
+2. Execute "npm run develop" to run the application on a local server.
 
 ## Usage
-
+Please see the below demonstration of the functionality:
 
 
 ## License
@@ -80,3 +96,5 @@ Contributions are welcome.
 Paul, Rich, Amanda, Alice, and Yandra
 
 ## Questions
+If you have any questions you can reach out to us at:
+cooperpontea@gmail.com, aliceli083@gmail.com, paulnxn1@gmail.com, rstreeper96@gmail.com, yandrakamb@gmail.com
