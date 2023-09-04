@@ -67,6 +67,10 @@ SO THAT I can be engaged in a fun learning experience.
 
 ## Usage
 
+Link to deployed Application:
+
+https://childs-play-207b603b0a7d.herokuapp.com/
+
 
 
 ## License
