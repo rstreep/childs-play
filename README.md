@@ -82,7 +82,15 @@ This application uses Node.js (min v16)
 2. Execute "npm run develop" to run the application on a local server.
 
 ## Usage
+<<<<<<< HEAD
 Please see the below demonstration of the functionality:
+=======
+
+Link to deployed Application:
+
+https://childs-play-207b603b0a7d.herokuapp.com/
+
+>>>>>>> 453b6bf5af3443cc8bdaf5f05a28d4e455ff568b
 
 
 ## License

@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations';
 import { ADD_USER } from '../utils/mutations';
-// import axios from 'axios'
+
 
 export default function Login() {
   const [showCreateAccountForm, setShowCreateAccountForm] = useState(false);
@@ -46,6 +46,7 @@ export default function Login() {
   };
 
   const handleRegister = async () => {
+    console.log('UserName: ' , userName);
     console.log('First Name: ', newFirstName);
     console.log('Last Name: ', newLastName);
     console.log('New Email: ', newEmail);
@@ -58,7 +59,7 @@ export default function Login() {
     // const newLastName = document.querySelector('#user_last_name').value.trim();
     // const newChildName = document.querySelector('#child_name').value.trim();
 
-    // stuff etc
+   
 
     const formData = {
       username: userName.trim(),
@@ -66,12 +67,15 @@ export default function Login() {
       password: newPassword,
 
     }
+
+    console.log(formData);
+    
     try {
-      const response = await addUser({
+      const {data} = await addUser({
         variables: { ...formData },
       });
 
-      Auth.login(response.data.addUser.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
