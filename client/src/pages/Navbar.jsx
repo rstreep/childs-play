@@ -42,18 +42,18 @@ const Navbar = () => {
 
                     <li>
                         <Link to="/animalgame">
-                        <p id='font'> Which Animal?🦋</p>
+                        <p id='font'> Which Animal?   🦋</p>
                         </Link>
                     </li>
 
                     <li> <Link to="/colorgame">
-                    <p id='font'>🎨 Pick A Color </p>
+                    <p id='font'>🎨    Pick A Color </p>
                     </Link></li>
 
 
                     <li>
                         <Link to="/spellinggame">
-                        <p id='font'> Space Spells🪐</p>
+                        <p id='font'> Space Spells     🪐</p>
                         </Link>
                     </li>
 
