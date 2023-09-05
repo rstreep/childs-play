@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from 'react';
 
+import spaceWallpaper from "../assets/images/spellinggame/space_background.jpg"
+import starImage from "../assets/images/spellinggame/star.jpg";
+import alienImage from "../assets/images/spellinggame/alien.jpg";
+import earthImage from "../assets/images/spellinggame/earth.jpg";
+import moonImage from "../assets/images/spellinggame/moon.jpg";
+import shipImage from "../assets/images/spellinggame/ship.jpg";
+import sunImage from "../assets/images/spellinggame/sun.jpg";
+import spaceImage from "../assets/images/spellinggame/space.jpg";
+import planetImage from "../assets/images/spellinggame/planet.jpg";
+import skyImage from "../assets/images/spellinggame/sky.jpg";
+import cometImage from "../assets/images/spellinggame/comet.jpg";
+
 //list words, answers, and images in an array
 const wordsAndAnswers = [
-    { word: "STA_", answer: "R" , finalword: "STAR", image: 'star.jpg' },
-    { word: "AL_EN", answer: "I" , finalword: "ALIEN" , image: 'alien.jpg' },
-    { word: "_ARTH", answer: "E" , finalword: "EARTH", image: 'earth.jpg'},
-    { word: "MOO_", answer: "N" , finalword: "MOON",image: 'moon.jpg'},
-    { word: "SH_P", answer: "I" , finalword: "SHIP", image: 'ship.jpg'},
-    { word: "SU_", answer: "N" , finalword: "SUN", image: 'sun.jpg'},
-    { word: "S_ACE", answer: "P" , finalword: "SPACE", image: 'space.jpg'},
-    { word: "PLA_ET", answer: "N" , finalword: "PLANET", image: 'planet.jpg'},
-    { word: "SK_", answer: "Y" , finalword: "SKY", image: 'sky.jpg'},
-    { word: "C_MET", answer: "O" , finalword: "COMET", image: 'comet.jpg'}
+    { word: "STA_", answer: "R" , finalword: "STAR", image: starImage },
+    { word: "AL_EN", answer: "I" , finalword: "ALIEN" , image: alienImage },
+    { word: "_ARTH", answer: "E" , finalword: "EARTH", image: earthImage },
+    { word: "MOO_", answer: "N" , finalword: "MOON",image: moonImage },
+    { word: "SH_P", answer: "I" , finalword: "SHIP", image: shipImage },
+    { word: "SU_", answer: "N" , finalword: "SUN", image: sunImage },
+    { word: "S_ACE", answer: "P" , finalword: "SPACE", image: spaceImage },
+    { word: "PLA_ET", answer: "N" , finalword: "PLANET", image: planetImage },
+    { word: "SK_", answer: "Y" , finalword: "SKY", image: skyImage },
+    { word: "C_MET", answer: "O" , finalword: "COMET", image: cometImage }
   ];
 
 // function to generate question options.
@@ -97,7 +109,7 @@ const SpellingGame = () => {
     justifyContent: 'center', 
     alignItems: 'center',
     minHeight: '100vh', 
-    backgroundImage: `url('./src/assets/images/spellinggame/space_background.jpg')`,
+    backgroundImage: `url(${spaceWallpaper})`,
     backgroundSize: 'cover', 
     backgroundRepeat: 'no-repeat',
   }}
@@ -129,7 +141,7 @@ const SpellingGame = () => {
               width: '35%',
               marginBottom: '1rem',
             }}
-            src={`./src/assets/images/spellinggame/${currentWordInfo.image}`}
+            src={currentWordInfo.image}
             alt={currentWordInfo.finalword}
           />
         </div>
