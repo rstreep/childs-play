@@ -17,7 +17,7 @@
 Constructed a children's learning application, featuring 3 educational games and parent login / access to the site.
 
 ### Deployed Link:
-
+https://childs-play-207b603b0a7d.herokuapp.com/
 
 ## Project Details:
 Welcome to “Know on the Go!”: an educational platform designed to engage and educate young minds. Intended for ages 3-5, the app is equipped with three learning games—'Identify Animals,' Fix the Spelling,' and 'Identify Food Colors'—children can enjoy interactive challenges that promote learning in a playful environment. The app features a secure parental verification process, ensuring a controlled and safe experience for children. Know on the Go offers a simple yet effective way for children to have fun while enhancing their skills.
@@ -29,9 +29,6 @@ I WANT a user-friendly interface that prompts me verify and authenticate my acco
 SO THAT I can access the app and games for my child.
 
 - Needs a way to register and verify login.
-- Needs a way to comment on the games.
-- Needs a way to contact the company.
-
 
 ### Child
 AS a child,
@@ -44,8 +41,6 @@ SO THAT I can be engaged in a fun learning experience.
 - Needs a way to know if my selection is correct or wrong.
 - Needs a way to learn the correct answer after getting something incorrect.
 - Needs a way to navigate between the games and the homepage.
-- Needs a way to check the submit time
-- Needs a way to check the game score
 - Needs a way to restart the game after finishing it.
 
 ## Acceptance Criteria
@@ -57,8 +52,6 @@ SO THAT I can be engaged in a fun learning experience.
 - New parent sign up page.
 - Parents need to supply an email address, first, last name and password to sign up.
 - 3 Interactive Learning Games for children aged 3-5.
-- Comment section for each game, which records submitter and submit time.
-- Contact form for parents to submit suggestions and concerns to the company.
 
 ## Key Features
 - Authentication: Account set up and log in for parents.
@@ -83,20 +76,9 @@ This application uses Node.js (min v16)
 
 ## Usage
 
-Please see the below demonstration of the functionality:
-
-
-Link to deployed Application:
-
-https://childs-play-207b603b0a7d.herokuapp.com/
-
 Video Demo of Live Application [using Heroku]
 
-
-
 https://github.com/rstreep/childs-play/assets/84299358/ae769b02-f241-41bd-b25e-6cb39a67f96f
-
-
 
 
 ## License
