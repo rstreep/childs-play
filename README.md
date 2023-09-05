@@ -83,13 +83,16 @@ This application uses Node.js (min v16)
 
 ## Usage
 
-<<<<<<< HEAD
 Please see the below demonstration of the functionality:
-=========
+
 
 Link to deployed Application:
 
 https://childs-play-207b603b0a7d.herokuapp.com/
+
+Video Demo of Live Application [using Heroku]
+
+
 
 
 ## License
